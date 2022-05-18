@@ -72,4 +72,9 @@
 .home__bottom{
     width: 100vw;
     height: 60vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 6%;
+    margin-top: 60px;
 }
+

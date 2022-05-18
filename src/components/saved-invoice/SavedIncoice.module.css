@@ -1,0 +1,37 @@
+.saved_invoice__container{
+    width:600px;
+    height: 100px;
+    display: flex;
+    padding:40px;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.8px solid #2A2A2A;
+    margin-top: 10px;
+    border-radius: 16px;
+}
+
+.date{
+    margin-top: 5px;
+    font-size: small;
+    color:#1A1A1A;
+}
+
+.view__dropdown{
+    width:100px;
+    height:40px;
+    outline:none;
+    border: none;
+    background: white;
+    color: #7161C5;
+    font-size: large;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.view__dropdown:hover{
+    cursor: pointer;
+    background: #F2EFFF;
+    border-radius: 30px;
+
+}
