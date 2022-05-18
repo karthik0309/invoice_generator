@@ -1,4 +1,5 @@
 import React ,{useState} from 'react'
+import {Link} from 'react-router-dom'
 import Button from '../../components/button/Button'
 import TextInput from '../../components/text_input/TextInput'
 import Vector1 from '../../assets/Vector 91.png'
@@ -13,11 +14,6 @@ const Home = () => {
 
     const handleInvoiceChange=(event: React.ChangeEvent<HTMLInputElement>)=>{
         setInvoice(event.target.value)
-    }
-
-    const handleGenerateInvoice=()=>{
-        setSavedInvoices([...savedInvoices,invoice])
-        setInvoice("")
     }
 
     return (
@@ -37,10 +33,10 @@ const Home = () => {
                         onChange={(e)=>handleInvoiceChange(e)}
                         value={invoice}/>
 
-                        <Button 
-                        value="Generate invoice" 
-                        onClick={()=>handleGenerateInvoice()}
-                        />
+                        <Link to={`/invoice?invoice=${invoice}`}>
+                            <Button value="Generate invoice" />
+                        </Link>
+
                     </div>
                 </div>
                 <div className={classes.home__top__right}>
