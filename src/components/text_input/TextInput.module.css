@@ -1,0 +1,14 @@
+.text__input{
+    width: 400px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 0.5px solid #2B2B2B;
+    border-radius: 14.8438px;
+    outline:none;
+    font-size: larger;
+    padding-left: 20px;
+}
+
+.text__input:focus{
+    border: 2px solid #2B2B2B;
+}
