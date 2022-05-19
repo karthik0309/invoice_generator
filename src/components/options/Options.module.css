@@ -26,6 +26,18 @@
     color: #9E9E9E;
 }
 
+.para{
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.para:hover{
+    color: #604CC5;
+    border-bottom: 3px solid  #604CC5;
+}
+
+
 .icon{
     margin-left:5px;
 }

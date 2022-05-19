@@ -1,28 +1,19 @@
 import Reac,{useState,useEffect} from 'react'
+import {useSearchParams} from 'react-router-dom'
 import InvoiceBill from '../../components/invoice-bill/InvoiceBill'
 import Navbar from '../../components/navbar/Navbar'
 import Options from '../../components/options/Options'
 import classes from './Invoice.module.css'
-
-type invoiceType={
-  transactionName:string,
-  amount:number,
-  description:descriptionType[]
-}
-
-type descriptionType={
-  name:string,
-  price:number,
-  quantity:number,
-  total:number
-}
-
+import { invoiceType } from '../../types/types'
 
 const Invoice = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [currOption,setCurrOption]=useState('edit')
   const [description,setDescription] = useState<any[]>([])
   const [invoiceDetails, setInvoiceDetails] = useState<invoiceType>({
+    invoiceName:'',
     transactionName:'',
+    date:'',
     amount:0,
     description:[]
   })
@@ -47,6 +38,18 @@ const Invoice = () => {
     setInvoiceDetails({...invoiceDetails,description:updatedInvoice,amount:updatedTotal})
     setCurrDescription({name:'',price:0,quantity:0,total:0})
   }
+
+  const handleSaveInvoice = ()=>{
+    if(localStorage.getItem('invoice')===null){
+      localStorage.setItem('invoice',JSON.stringify([]))
+    }
+
+    const invoices = localStorage.getItem('invoice')
+    const parsedInvoices = JSON.parse(invoices || '[]')
+
+    parsedInvoices.push(invoiceDetails)
+    localStorage.setItem('invoice',JSON.stringify(parsedInvoices))
+  }
   
   const fetchDescription=()=>{
     fetch('https://fakestoreapi.com/products?limit=3',{
@@ -61,13 +64,19 @@ const Invoice = () => {
 
   useEffect(()=>{
     fetchDescription()
+    setInvoiceDetails({...invoiceDetails,invoiceName:searchParams.get("invoice") || ''})
   },[])
 
-  // console.log(description)
   return (
     <div className={classes.invoice__container}>
         <Navbar/>
-        <Options handleOption={handleOptions} state={currOption} handleChange={handleSave}/>
+
+        <Options  state={currOption}
+        invoiceName={invoiceDetails.invoiceName}
+        handleOption={handleOptions}
+        handleChange={handleSave}
+        handleSaveInvoice={handleSaveInvoice}/>
+
         <InvoiceBill state={currOption} 
         description={description}
         currDescription={currDescription}

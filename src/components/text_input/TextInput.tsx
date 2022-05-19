@@ -16,7 +16,7 @@ const TextInput : React.FC<InputTextType> = ({value,placeholder,size,onChange}) 
     onChange={onChange}
     value={value}
     style={{width: size==='med' ? '300px' : '400px',
-            height: size==='med' ? '40px' : '50px',
+            height: size==='med' ? '35px' : '50px',
             borderRadius: size==='med' ?'6px' : '14px'}}/>
   )
 }

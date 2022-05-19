@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import Button from '../../components/button/Button'
 import TextInput from '../../components/text_input/TextInput'
@@ -7,15 +7,22 @@ import Vector2 from '../../assets/Vector 92.png'
 import TradeMarkia from '../../assets/Trademarkia.png'
 import classes from './Home.module.css'
 import SavedInvoice from '../../components/saved-invoice/SavedInvoice'
+import {invoiceType} from '../../types/types'
 
 const Home = () => {
     const [invoice,setInvoice] = useState("")
-    const [savedInvoices,setSavedInvoices] = useState<string[]>([])
+    const [savedInvoices,setSavedInvoices] = useState<invoiceType[]>([])
 
     const handleInvoiceChange=(event: React.ChangeEvent<HTMLInputElement>)=>{
         setInvoice(event.target.value)
     }
 
+    useEffect(()=>{
+        const invoices = localStorage.getItem("invoice")
+        const parsedInvoices = JSON.parse(invoices || '[]')
+
+        setSavedInvoices(parsedInvoices)
+    },[])
     return (
         <div className={classes.home__container}>
             <div className={classes.home__top}>
@@ -50,7 +57,7 @@ const Home = () => {
                 }
 
                 {savedInvoices.map((ele)=>(
-                    <SavedInvoice name={ele}/>
+                    <SavedInvoice invoiceDetails={ele}/>
                 ))}
             </div>
         </div>

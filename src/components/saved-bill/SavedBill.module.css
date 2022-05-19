@@ -1,11 +1,3 @@
-.invoice_bill__container{
-    width:100vw;
-    min-height:600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .invoice_bill__main{
     background: #FFFFFF;
     box-shadow: 0px 4.38506px 10.9626px rgba(95, 95, 94, 0.25);
@@ -15,7 +7,7 @@
 }
 
 .invoice_bill__line{
-    width:620px;
+    width:540px;
     height:8px;
     background: #7161C5;
 }
@@ -23,7 +15,7 @@
 .invoice_bill__header{
     background: #F9F8FF;
     height:130px;
-    width:620px;
+    width:540px;
     border-radius: 8px;
     position: relative;
 }
@@ -68,7 +60,7 @@
 
 .invoice_bill__transaction{
     margin-top: 15px;
-    width: 600px;
+    width: 540px;
     display: flex;
     justify-content: space-around;
 }
@@ -85,8 +77,8 @@
 
 .invoice_bill__description{
     margin-top: 25px;
-    width: 580px;
-    margin-left: 20px;
+    width: 520px;
+    margin-left: 10px;
     height:auto;
     display: flex;
     flex-direction: column;    
@@ -104,24 +96,27 @@
 }
 
 .description{
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
 }
+
 
 .description>h4{
     text-align: center;
     width:80px;
 }
 
+
+
 .title{
     text-align: left;
-    width:60%;
-    margin-left:40px;
+    width:50%;
+    margin-left:20px;
 }
 
 .line{
-    width: 560px;
+    width: 500px;
     height:2.5px;
     background-color: #DFDCF3;
     margin-left: 10px;
@@ -134,12 +129,13 @@
     margin-top:5px;
     height:60px;
     align-items: center;
-    width:560px;
+    width:500px;
     margin-left:10px;
+    margin-bottom: 5px;
 }
 
 .description__input__total{
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
 }
@@ -152,8 +148,8 @@
 
 .description__input__title{
     text-align: left;
-    width: 60%;
-    margin-left:40px;
+    width: 50%;
+    margin-left:20px;
 }
 
 .description__input__item:nth-child(even){
@@ -161,45 +157,6 @@
     border-radius:12px;
 }
 
-.edit__input{
-    display:flex;
-    justify-content: space-around;
-    margin-top:5px;
-    height:60px;
-    align-items: center;
-}
-
-.edit__name{
-    text-align: left;
-    width: 60%;
-    margin-left:40px;
-    outline:none;
-    border: 1.3px solid #D1D5DB;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-    border-radius: 6px;
-    height:30px;
-}
-
-.edit__info{
-    width: 40%;
-    display: flex;
-    justify-content: space-between; 
-    font-weight: 700;
-}
-
-.edit__info>p{
-    width:80px;
-    text-align:center;
-}
-.edit__quantity{
-    width:80px;
-    outline:none;
-    border: 1px solid #D1D5DB;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-    border-radius: 6px;
-    height:30px;
-    padding:5px;
-}
 
 .total{
     display: flex;

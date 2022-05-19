@@ -1,33 +1,10 @@
-import React,{useState} from 'react'
+import React from 'react'
 import Vector1 from '../../assets/Vector 91.png'
 import Vector2 from '../../assets/Vector 92.png'
-import TextInput from '../text_input/TextInput'
-import classes from './InvoiceBill.module.css'
-import {invoiceBillType} from '../../types/types'
+import classes from './SavedBill.module.css'
+import {savedInvoiceType} from '../../types/types'
 
-
-const InvoiceBill:React.FC<invoiceBillType> = ({state,description,invoiceDetails,currDescription,setInvoiceDetails,setCurrDescription}) => {
-
-  const handleTransactionName=(event:React.ChangeEvent<HTMLInputElement>) => {
-    const date = new Date(Date.now()).toDateString()
-    setInvoiceDetails({...invoiceDetails,transactionName:event.target.value,date:date})
-  }
-
-  const handleInputChange=(event:React.ChangeEvent<HTMLSelectElement>) => {
-    const prodId = event.target.value;
-    const product = description.filter((item)=>item.title.substring(0,Math.min(25,item.title.length))== prodId)[0]
-    console.log(product+" "+prodId);
-    const price = Number(product.price)
-    const name = String(product.title.substring(0,Math.min(25,product.title.length,25)));
-    setCurrDescription({...currDescription,name:name,price:price})
-  }
-
-  const handleQuantityChange=(event:React.ChangeEvent<HTMLInputElement>) => {
-    const total = Number(event.target.value) * currDescription.price
-    setCurrDescription({...currDescription,quantity:Number(event.target.value),total:total})
-  }
-
-  console.log(currDescription)
+const SavedBill:React.FC<savedInvoiceType> = ({invoiceDetails}) => {
   return (
     <div className={classes.invoice_bill__container}>
         <div className={classes.invoice_bill__main}>
@@ -53,17 +30,10 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description,invoiceDetails
 
         <div className={classes.invoice_bill__transaction}>
             <div className={classes.invoice_bill__transaction__input}>
-                {state==='preview' ? 
                 <p>
                     {invoiceDetails.transactionName}
-                </p> : 
-                <TextInput 
-                size="med"
-                placeholder="enter transaction name"
-                onChange={(e)=>handleTransactionName(e)}
-                value={invoiceDetails.transactionName}/>}
-
-                <p>Paid on {invoiceDetails.date}</p>
+                </p> 
+                <p>Paid on {new Date(Date.now()).toDateString()}</p>
             </div>
 
             <div className={classes.invoice_bill__transaction__amount}>
@@ -95,27 +65,6 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description,invoiceDetails
                         </div>
                     </div>
                 ))}
-                {state==='edit' &&  
-                <div className={classes.edit__input}>
-                    <select
-                    onChange={(e)=>handleInputChange(e)} 
-                    value={currDescription.name}  
-                    className={classes.edit__name}>
-                        {description.map((item:any,index:number) =>(
-                            <option key={index} value={item.title.substring(0,Math.min(25,item.title.length))}>
-                                {item.title.substring(0,Math.min(25,item.title.length))}
-                            </option>
-                        ))}
-                    </select>
-                    <div className={classes.edit__info}>
-                        <p>{currDescription.price}</p>
-                        <input type="number"
-                         onChange={(e)=>{handleQuantityChange(e)}}
-                         value={currDescription.quantity} className={classes.edit__quantity}/>
-                        <p>${currDescription.total}</p>
-                    </div>
-                </div>
-                }
             </div>
         </div>
         <div className={classes.total}>
@@ -130,4 +79,4 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description,invoiceDetails
   )
 }
 
-export default InvoiceBill
+export default SavedBill
