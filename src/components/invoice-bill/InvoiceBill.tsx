@@ -6,23 +6,26 @@ import classes from './InvoiceBill.module.css'
 
 type invoiceBillType = {
     description:any[],
-    state:string
+    state:string,
+    invoiceDetails:invoiceType,
+    currDescription:descriptionType,
+    setInvoiceDetails:(e:any) => void,
+    setCurrDescription:(e:any) => void
 }
 
-const InvoiceBill:React.FC<invoiceBillType> = ({state,description}) => {
+type descriptionType={
+    name:string,
+    price:number,
+    quantity:number,
+    total:number
+}
 
-  const [invoiceDetails, setInvoiceDetails] = useState({
-    transactionName:'',
-    amount:0,
-    description:[]
-  })
-
-  const [currDescription,setCurrDescription] = useState({
-    name:'',
-    price:0,
-    quantity:0,
-    total:0
-  })
+type invoiceType={
+    transactionName:string,
+    amount:number,
+    description:descriptionType[]
+}
+const InvoiceBill:React.FC<invoiceBillType> = ({state,description,invoiceDetails,currDescription,setInvoiceDetails,setCurrDescription}) => {
 
   const handleTransactionName=(event:React.ChangeEvent<HTMLInputElement>) => {
     setInvoiceDetails({...invoiceDetails,transactionName:event.target.value})
@@ -41,7 +44,6 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description}) => {
     const total = Number(event.target.value) * currDescription.price
     setCurrDescription({...currDescription,quantity:Number(event.target.value),total:total})
   }
-
 
   console.log(currDescription)
   return (
@@ -97,24 +99,13 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description}) => {
                     <h4>Line Total</h4>
                 </div>
             </div>
-            <div className={classes.line}>
+            <div className={classes.line}></div>
 
             <div className={classes.description__input}>
-                {state==='preview' &&  description.map((item:any,index:number) =>(
-                    <div key={index} className={classes.description__input__item}>
-                        <p className={classes.description__input__title}>{item.title.substring(0,Math.min(item.title.length,25))}</p>
-                        <div className={classes.description__input__total}>
-                            <p>{item.price}</p>
-                            <p>{1}</p>
-                            <p>{200}</p>
-                        </div>
-                    </div>
-                ))}
-                {state==='edit' && 
-                invoiceDetails.description.length>0 && 
+                {invoiceDetails.description.length>0 && 
                 invoiceDetails.description.map((item:any,index:number) =>(
                     <div key={index} className={classes.description__input__item}>
-                        <p className={classes.description__input__title}>{item.title.substring(0,Math.min(item.title.length,25))}</p>
+                        <p className={classes.description__input__title}>{item.name}</p>
                         <div className={classes.description__input__total}>
                             <p>{item.price}</p>
                             <p>{item.quantity}</p>
@@ -144,8 +135,14 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description}) => {
                 </div>
                 }
             </div>
-            </div>
         </div>
+        <div className={classes.total}>
+            <div className={classes.total__line}></div>
+                <div className={classes.total__container}>
+                    <p>Total</p>
+                    <p>${invoiceDetails.amount}</p>
+                </div>
+            </div>
         </div>
     </div>
   )

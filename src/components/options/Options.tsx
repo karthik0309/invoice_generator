@@ -7,10 +7,11 @@ import Button from '../button/Button'
 
 type optionType={
     handleOption:(e:any)=>void,
-    state:string
+    state:string,
+    handleChange:()=>void
 }
 
-const Options:React.FC<optionType> = ({handleOption,state}) => {
+const Options:React.FC<optionType> = ({handleOption,state,handleChange}) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
    
@@ -34,7 +35,7 @@ const Options:React.FC<optionType> = ({handleOption,state}) => {
 
         <div className={classes.buttons}>
             {state==='preview' ? <Button value="Export PDF" size="med"/> 
-            :<Button value="Save Changes" size="med"/>}
+            :<Button value="Save Changes" size="med" onClick={handleChange}/>}
             
             <Button value="Save Invoice" bg='#EDEAFF' color='#7161C5' size="med"/>
         </div>
