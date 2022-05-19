@@ -26,8 +26,9 @@ export type optionType={
     state:string,
     invoiceName:string,
     handleOption:(e:any)=>void,
-    handleChange:()=>void
-    handleSaveInvoice:()=>void
+    handleChange:()=>void,
+    handleSaveInvoice:()=>void,
+    handleExportPDF:()=>void
 }
 
 export type savedInvoiceType = {

@@ -1,12 +1,14 @@
-import Reac,{useState,useEffect} from 'react'
+import Reac,{useState,useEffect,useRef} from 'react'
 import {useSearchParams} from 'react-router-dom'
 import InvoiceBill from '../../components/invoice-bill/InvoiceBill'
 import Navbar from '../../components/navbar/Navbar'
 import Options from '../../components/options/Options'
 import classes from './Invoice.module.css'
+import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 import { invoiceType } from '../../types/types'
 
 const Invoice = () => {
+  const PDFExportComponent = useRef<PDFExport>(null)
   const [searchParams, setSearchParams] = useSearchParams();
   const [currOption,setCurrOption]=useState('edit')
   const [description,setDescription] = useState<any[]>([])
@@ -62,6 +64,12 @@ const Invoice = () => {
     })
   }
 
+  const handleExportPDF=()=>{
+    if (PDFExportComponent.current) {
+      PDFExportComponent.current.save();
+    }
+  }
+
   useEffect(()=>{
     fetchDescription()
     setInvoiceDetails({...invoiceDetails,invoiceName:searchParams.get("invoice") || ''})
@@ -75,15 +83,19 @@ const Invoice = () => {
         invoiceName={invoiceDetails.invoiceName}
         handleOption={handleOptions}
         handleChange={handleSave}
-        handleSaveInvoice={handleSaveInvoice}/>
+        handleSaveInvoice={handleSaveInvoice}
+        handleExportPDF={handleExportPDF}/>
 
-        <InvoiceBill state={currOption} 
-        description={description}
-        currDescription={currDescription}
-        invoiceDetails={invoiceDetails}
-        setInvoiceDetails={setInvoiceDetails}
-        setCurrDescription={setCurrDescription}
-        />
+        <PDFExport ref={PDFExportComponent} paperSize="A4">
+          <InvoiceBill state={currOption} 
+          description={description}
+          currDescription={currDescription}
+          invoiceDetails={invoiceDetails}
+          setInvoiceDetails={setInvoiceDetails}
+          setCurrDescription={setCurrDescription}
+          />  
+        </PDFExport>
+        
     </div>
   )
 }

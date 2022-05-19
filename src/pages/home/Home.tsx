@@ -56,8 +56,8 @@ const Home = () => {
                     <h2 className={classes.h2}>Saved invoices</h2>
                 }
 
-                {savedInvoices.map((ele)=>(
-                    <SavedInvoice invoiceDetails={ele}/>
+                {savedInvoices.map((ele,index)=>(
+                    <SavedInvoice invoiceDetails={ele} key={index}/>
                 ))}
             </div>
         </div>
