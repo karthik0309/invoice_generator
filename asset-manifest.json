@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/invoice_generator/static/css/main.9f088a99.css",
+    "main.js": "/invoice_generator/static/js/main.f7434881.js",
+    "static/css/71.07159394.chunk.css": "/invoice_generator/static/css/71.07159394.chunk.css",
+    "static/js/71.f72783cc.chunk.js": "/invoice_generator/static/js/71.f72783cc.chunk.js",
+    "static/css/4.70ed8011.chunk.css": "/invoice_generator/static/css/4.70ed8011.chunk.css",
+    "static/js/4.24462501.chunk.js": "/invoice_generator/static/js/4.24462501.chunk.js",
+    "static/js/787.408dc359.chunk.js": "/invoice_generator/static/js/787.408dc359.chunk.js",
+    "static/js/285.44588223.chunk.js": "/invoice_generator/static/js/285.44588223.chunk.js",
+    "static/js/926.db2e793f.chunk.js": "/invoice_generator/static/js/926.db2e793f.chunk.js",
+    "static/media/Trademarkia.png": "/invoice_generator/static/media/Trademarkia.8afa27dd74ed6ba32f9d.png",
+    "index.html": "/invoice_generator/index.html",
+    "main.9f088a99.css.map": "/invoice_generator/static/css/main.9f088a99.css.map",
+    "main.f7434881.js.map": "/invoice_generator/static/js/main.f7434881.js.map",
+    "71.07159394.chunk.css.map": "/invoice_generator/static/css/71.07159394.chunk.css.map",
+    "71.f72783cc.chunk.js.map": "/invoice_generator/static/js/71.f72783cc.chunk.js.map",
+    "4.70ed8011.chunk.css.map": "/invoice_generator/static/css/4.70ed8011.chunk.css.map",
+    "4.24462501.chunk.js.map": "/invoice_generator/static/js/4.24462501.chunk.js.map",
+    "787.408dc359.chunk.js.map": "/invoice_generator/static/js/787.408dc359.chunk.js.map",
+    "285.44588223.chunk.js.map": "/invoice_generator/static/js/285.44588223.chunk.js.map",
+    "926.db2e793f.chunk.js.map": "/invoice_generator/static/js/926.db2e793f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9f088a99.css",
+    "static/js/main.f7434881.js"
+  ]
+}
