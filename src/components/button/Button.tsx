@@ -15,7 +15,8 @@ const Button : React.FC<ButtonType> = ({value,color,bg,size,onClick}) => {
     style={{color:color!==null ? color : 'white',
             background : bg!==null ? bg : '#7161C5',
             height: size==='med' ? '40px' : '50px',
-            width : size==='med' ? '140px' : '210px'}}>
+            width : size==='med' ? '140px' : '210px',
+            fontSize : size==='med' ? 'medium ' : 'large'}}>
         {value}
     </button>
   )

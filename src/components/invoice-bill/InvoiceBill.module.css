@@ -1,0 +1,201 @@
+.invoice_bill__container{
+    width:100vw;
+    min-height:600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.invoice_bill__main{
+    background: #FFFFFF;
+    box-shadow: 0px 4.38506px 10.9626px rgba(95, 95, 94, 0.25);
+    border-radius: 8.77011px;
+    height:600px;
+    margin-top:20px;
+}
+
+.invoice_bill__line{
+    width:620px;
+    height:8px;
+    background: #7161C5;
+}
+
+.invoice_bill__header{
+    background: #F9F8FF;
+    height:130px;
+    width:620px;
+    border-radius: 8px;
+    position: relative;
+}
+
+
+.vector1{
+    position: absolute;
+    left: 20px;
+    top: 20px;    
+    width: 20px;
+    height: 20px;
+}
+
+.vector2{
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    left: 29px;
+    top: 28px;    
+}
+
+.h2{
+    color:#7161C5;
+    position: absolute;
+    left: 50px;
+    top: 17px;   
+}
+
+.invoice_bill__address{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.invoice_bill__address>p{
+    text-align: right;
+    font-size: small;
+    margin:2px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.invoice_bill__transaction{
+    margin-top: 15px;
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.invoice_bill__transaction__amount>p{
+    color: #7161C5;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.invoice_bill__transaction__input>p{
+    margin-top: 5px;
+}
+
+.invoice_bill__description{
+    margin-top: 25px;
+    width: 580px;
+    margin-left: 20px;
+    min-height:250px;
+    height:auto;
+    display: flex;
+    flex-direction: column;    
+    border: 2px solid #ACA5D6;
+    border-radius: 12px;
+}
+
+
+.invoice_bill__description__header{
+    display: flex;
+    justify-content: space-around;
+    margin-top:5px;
+    color: #7161C5;
+    padding:5px;
+}
+
+.description{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.description>h4{
+    text-align: center;
+    width:80px;
+}
+
+.title{
+    text-align: left;
+    width:60%;
+    margin-left:40px;
+}
+
+.line{
+    width: 560px;
+    height:2.5px;
+    background-color: #DFDCF3;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.description__input__item{
+    display:flex;
+    justify-content: space-around;
+    margin-top:5px;
+    height:60px;
+    align-items: center;
+}
+
+.description__input__total{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.description__input__total>p{
+    width:80px;
+    text-align:center;
+}
+
+
+.description__input__title{
+    text-align: left;
+    width: 60%;
+    margin-left:40px;
+}
+
+.description__input__item:nth-child(even){
+    background: #F9F8FF;
+    border-radius:12px;
+}
+
+.edit__input{
+    display:flex;
+    justify-content: space-around;
+    margin-top:5px;
+    height:60px;
+    align-items: center;
+}
+
+.edit__name{
+    text-align: left;
+    width: 60%;
+    margin-left:40px;
+    outline:none;
+    border: 1.3px solid #D1D5DB;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    height:30px;
+}
+
+.edit__info{
+    width: 40%;
+    display: flex;
+    justify-content: space-between; 
+    font-weight: 700;
+}
+
+.edit__info>p{
+    width:80px;
+    text-align:center;
+}
+.edit__quantity{
+    width:80px;
+    outline:none;
+    border: 1px solid #D1D5DB;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    height:30px;
+    padding:5px;
+}
