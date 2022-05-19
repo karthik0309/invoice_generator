@@ -1,6 +1,6 @@
 .saved_invoice__container{
     width:600px;
-    height: 100px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     border: 0.8px solid #2A2A2A;
@@ -57,3 +57,14 @@
     display:none;
 }
 
+
+
+@media(max-width:767px){
+    .saved_invoice__container{
+        width:350px;
+    }
+
+    .saved_info{
+        width:350px;
+    }
+}

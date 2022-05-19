@@ -54,7 +54,7 @@ const Invoice = () => {
   }
   
   const fetchDescription=()=>{
-    fetch('https://fakestoreapi.com/products?limit=3',{
+    fetch('https://fakestoreapi.com/products?limit=5',{
       method: 'GET',
       mode: 'cors'
     })
@@ -86,7 +86,7 @@ const Invoice = () => {
         handleSaveInvoice={handleSaveInvoice}
         handleExportPDF={handleExportPDF}/>
 
-        <PDFExport ref={PDFExportComponent} paperSize="A4">
+        <PDFExport ref={PDFExportComponent} paperSize="A2" fileName="invoice.pdf">
           <InvoiceBill state={currOption} 
           description={description}
           currDescription={currDescription}

@@ -22,8 +22,8 @@ const SavedBill:React.FC<savedInvoiceType> = ({invoiceDetails}) => {
                 <p>LegalForce RAPC Worldwide </p>
                 <p>+1 877-794-9511 </p>
                 <p>1580 West El Camino Real, Suite 10</p>
-                <p>Mountain View, California<p>
-                </p>94040 - 2479</p>
+                <p>Mountain View, California</p>
+                <p>94040 - 2479</p>
                 <p>United States</p>
             </div>
         </div>

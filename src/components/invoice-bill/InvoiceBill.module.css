@@ -131,11 +131,11 @@
 .description__input__item{
     display:flex;
     justify-content: space-around;
-    margin-top:5px;
     height:60px;
     align-items: center;
     width:560px;
     margin-left:10px;
+    margin-bottom: 10px;
 }
 
 .description__input__total{

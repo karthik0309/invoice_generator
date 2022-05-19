@@ -1,6 +1,8 @@
 .home__container{
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .home__top{
@@ -71,10 +73,44 @@
 
 .home__bottom{
     width: 100vw;
-    height: 60vh;
+    height: calc(60vh - 60px);
     display: flex;
     flex-direction: column;
     margin-left: 6%;
     margin-top: 60px;
 }
 
+@media(max-width:767px){
+    .home__top__left{
+        width: 100%;
+    }
+
+    .home__top{
+        height:30vh;
+    }
+    .home__top__right{
+        display:none;
+    }
+
+    .input__container{
+        width: 100vw;
+        height: 120px;
+        margin-left:10px;
+        flex-direction:column;
+    }
+
+    .h1{
+        font-size:43px;
+        margin-left: 8px;
+    }
+
+    .vector1{
+        left: 10px;
+        top: -10px;
+    }
+
+    .vector2{
+        left: 26px;
+        top: 3px;
+    }
+}

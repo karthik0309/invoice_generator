@@ -16,18 +16,17 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description,invoiceDetails
   const handleInputChange=(event:React.ChangeEvent<HTMLSelectElement>) => {
     const prodId = event.target.value;
     const product = description.filter((item)=>item.title.substring(0,Math.min(25,item.title.length))== prodId)[0]
-    console.log(product+" "+prodId);
     const price = Number(product.price)
     const name = String(product.title.substring(0,Math.min(25,product.title.length,25)));
     setCurrDescription({...currDescription,name:name,price:price})
   }
 
   const handleQuantityChange=(event:React.ChangeEvent<HTMLInputElement>) => {
-    const total = Number(event.target.value) * currDescription.price
+    let total = Number(event.target.value) * currDescription.price
+    total = Math.round((total + Number.EPSILON) * 100) / 100
     setCurrDescription({...currDescription,quantity:Number(event.target.value),total:total})
   }
 
-  console.log(currDescription)
   return (
     <div className={classes.invoice_bill__container}>
         <div className={classes.invoice_bill__main}>
@@ -45,8 +44,8 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description,invoiceDetails
                 <p>LegalForce RAPC Worldwide </p>
                 <p>+1 877-794-9511 </p>
                 <p>1580 West El Camino Real, Suite 10</p>
-                <p>Mountain View, California<p>
-                </p>94040 - 2479</p>
+                <p>Mountain View, California</p>
+                <p>94040 - 2479</p>
                 <p>United States</p>
             </div>
         </div>
@@ -99,7 +98,7 @@ const InvoiceBill:React.FC<invoiceBillType> = ({state,description,invoiceDetails
                 <div className={classes.edit__input}>
                     <select
                     onChange={(e)=>handleInputChange(e)} 
-                    value={currDescription.name}  
+                    value={currDescription.name || ''}  
                     className={classes.edit__name}>
                         {description.map((item:any,index:number) =>(
                             <option key={index} value={item.title.substring(0,Math.min(25,item.title.length))}>

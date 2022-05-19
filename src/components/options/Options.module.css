@@ -12,6 +12,8 @@
     color: #3A3A3A;
     font-style: capitalize;
     font-weight: 700;
+    display: flex;
+    justify-content:center;
 }
 
 .edit__options{
@@ -30,6 +32,7 @@
     height: 60px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .para:hover{
@@ -37,29 +40,20 @@
     border-bottom: 3px solid  #604CC5;
 }
 
-
-.icon{
-    margin-left:5px;
-}
-
-.i{
-   margin-right: 5px; 
-}
-
 .buttons{
-    width:30%;
+    width:250px;
     display: flex;
     align-items:center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 
-.edit__options>p:hover{
+.edit__options>div:hover{
     cursor: pointer;
     color: #604CC5;
 }
 
-.edit__options>p:focus{
+.edit__options>div:focus{
     cursor: pointer;
     color: #604CC5;
 }
